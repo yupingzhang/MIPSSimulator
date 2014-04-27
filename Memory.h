@@ -13,6 +13,23 @@
 #define __MIPSSimulator__Memory__
 
 #include <iostream>
+#include <vector>
+
+class Memory
+{
+private:
+    //instruction memory
+    std::vector<std::string> instructions;
+    //data memory
+    std::vector<int> data;
+    
+public:
+    Memory();
+    ~Memory() {};
+    
+    
+    
+};
 
 
 

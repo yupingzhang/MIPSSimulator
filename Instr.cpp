@@ -12,9 +12,9 @@
 Instr::Instr()
 {
     //DEFAULT
+/*
     
-    
-    switch (inst) {
+    switch (oprt) {
         case "LW":
             <#statements#>
             break;
@@ -82,7 +82,7 @@ Instr::Instr()
         default:
             break;
     }
-    
+*/   
     
 
 }

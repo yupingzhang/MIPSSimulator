@@ -10,6 +10,8 @@
 #define __MIPSSimulator__Instr__
 
 #include <iostream>
+#include <cstring>
+#include "Reg.h"
 
 #define IF 1
 #define ID 2
@@ -20,20 +22,21 @@
 class Instr
 {
 private:
-    reg dest;
-    reg s1;
-    reg s2;
-    
+    std::string oprt;
+    std::string dest;
+    std::string s1;
+    std::string s2;
+    int offset;
     
 public:
     Instr();
     ~Instr() {};
     int status;
     int harzard_flag;
-    void operate(reg dest, reg source1, reg source2);  //arithmetic
-    void operate(reg dest, reg source1);   //data transfers
-    void operate(reg dest);  //control
+    void operate(Reg dest, Reg source1, Reg source2);  //arithmetic
+    void operate(Reg dest, Reg source1);   //data transfers
+    void operate(Reg dest);  //control
     void operate();  //special
-}
+};
 
 #endif /* defined(__MIPSSimulator__Instr__) */
