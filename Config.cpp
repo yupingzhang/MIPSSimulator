@@ -23,7 +23,6 @@ Config::Config(std::string filename) {
     int t1, t2;
     
     while (std::getline(file, line)) {
-        std::cout << line << std::endl;
         
         if (line.find("FP adder") != std::string::npos) {
             
@@ -90,8 +89,8 @@ Config::Config(std::string filename) {
 
     }
     //std::cout << FPadder_pipelined << " " <<FPmultiplier_pipelined << " "<< FPdivider_pipelined << std::endl;
-    std::cout << MemoryAccess << " " <<ICacheAccess << " "<< DCacheAccess << std::endl;
-    
+    //std::cout << MemoryAccess << " " <<ICacheAccess << " "<< DCacheAccess << std::endl;
+    std::cout << "Config loaded." << std::endl;
 
 }
 

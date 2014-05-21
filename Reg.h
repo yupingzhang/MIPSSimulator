@@ -14,21 +14,21 @@
 #include <iostream>
 #include <cstdio>
 
+#include "basic.h"
+
 class Reg
 {
-private:
+public:
     int intReg[32];
-    float floatReg[32];
-    bool ocuppyflag[64];
+    int occupyflag[64];   // 1 is occupied, 0 is not.
     
 public:
     Reg(std::string regst);
     ~Reg() {};
     
-    void initialize(FILE *fp);
-    
-    Reg getReg(char*);
-    Reg retrive(char*);
+    //mark the in-use destination for hazard checking
+    void setflag(std::string regname);
+    bool checkflag(std::string regname);
     
 };
 

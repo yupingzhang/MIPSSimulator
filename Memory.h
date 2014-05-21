@@ -14,20 +14,24 @@
 
 #include <iostream>
 #include <vector>
+#include "basic.h"
+
+#include <utility>
 
 class Memory
 {
-private:
+public:
     //instruction memory
-    std::vector<std::string> instructions;
+    std::vector<Instr> instructions;    // index is the address
     //data memory
-    std::vector<int> data;
+    std::vector<int> data;   //  address start at 256, +4 per line
+    
+    int mainbusoccupycycle;  //lock the memory
     
 public:
-    Memory();
+    Memory(std::string instfile, std::string datafile);
     ~Memory() {};
-    
-    
+
     
 };
 

@@ -8,23 +8,24 @@
 
 #ifndef MIPSSimulator_AppContext_h
 #define MIPSSimulator_AppContext_h
+ 
+#include <vector>
 
-#include <queue>
 
 struct AppContext {
-  
-    //GLOBAL Clock
-    unsigned long int *mTime;
-    //PC (Program counter)
-    unsigned int PCounter;
+    
+    int reqinstrcache;
+    int instrcachehit;
+    int reqdatacache;
+    int datacachehit;
     
     class Memory *mMemory;
-    
     class Config *mConfig;
     class DataCache *mDataCache;
-    class Reg *mInstCache;
+    class InstrCache *mInstrCache;
+    class Reg *mRegister;
     
-    AppContext() : mTime(0), PCounter(0), mMemory(0), mDataCache(0), mInstCache(0), mConfig(0) {}
+    AppContext() : mMemory(0), mConfig(0), mDataCache(0), mInstrCache(0), mRegister(0) {}
     ~AppContext();
 
 };

@@ -14,23 +14,40 @@
 #include <cstdio>
 #include <queue>
 
-struct Data
-{
-    unsigned int dataaddress;
-    float datacontent;
+#include "AppContext.h"
+#include "basic.h"
+
+struct DataBlock {
+    int CacheTag;
+    Data CacheData[4];
+    int frequency;
+    bool valid;
     
+    DataBlock ()
+    {
+        CacheTag = 0;
+        frequency = 0;
+        valid = true;
+        for(int i=0; i<4; i++)
+        {
+            CacheData[i] = Data();
+        }
+    }
 };
 
 class DataCache
 {
-//data
+
 public:
-    std::queue<Data> *mDataCache;
-//method
+    DataBlock CacheBlocks[4];
+    
 public:
     DataCache();
     ~DataCache() {};
     
+    bool is_DCacheMiss(int address);      
+    void fetchNewData(AppContext &appctx, int memoryAddress);
+    int getValue(int address);
     
 };
 
